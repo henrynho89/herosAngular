@@ -8,12 +8,18 @@ import { SearchComponent } from './search/search.component';
 import { HerosDetailsComponent } from './heros-details/heros-details.component';
 import { HerosListComponent } from './heros-list/heros-list.component';
 import { NavbarComponent } from './navbar/navbar.component';
-<<<<<<< HEAD
-
-=======
-import {RouterModule} from '@angular/router';
 import { FavoriteComponent } from './favorite/favorite.component';
->>>>>>> add-router: ajout des routes
+import {RouterModule, Routes} from '@angular/router';
+
+const appRoutes : Routes =[
+  {path: '', component:HomeComponent},
+  {path: 'favorite', component:FavoriteComponent},
+  {path: 'search', component:SearchComponent},
+  {path: 'heros-details', component:HerosDetailsComponent},
+  {path: 'profile/:id', component:ProfileComponent},
+  {path: '**', component:HomeComponent}
+];
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,23 +28,12 @@ import { FavoriteComponent } from './favorite/favorite.component';
     SearchComponent,
     HerosDetailsComponent,
     HerosListComponent,
-<<<<<<< HEAD
-    NavbarComponent
-=======
     NavbarComponent,
     FavoriteComponent
->>>>>>> add-router: ajout des routes
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot([ 
-      {path: '', component:HomeComponent},
-      {path: 'favorite', component:FavoriteComponent},
-      {path: 'search', component:SearchComponent},
-      {path: 'heros-details', component:HerosDetailsComponent},
-      {path: 'profile/:id', component:ProfileComponent},
-      {path: '**', component:HomeComponent}
-    ])
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [],
   bootstrap: [AppComponent]

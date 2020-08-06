@@ -1,1 +1,12 @@
-<p>search works!</p>
+<div class="row">
+    <form class="col s10 offset-s1" (submit)="verification()">
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="search" type="text" [(ngModel)]="mot" name="mot">
+          <label for="search">Search</label>
+          <span class="helper-text">{{errorText}}</span>
+        </div>
+      </div>
+    </form>
+  </div>
+<app-heros-list></app-heros-list>

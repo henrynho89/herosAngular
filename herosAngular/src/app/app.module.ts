@@ -10,6 +10,8 @@ import { HerosListComponent } from './heros-list/heros-list.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FavoriteComponent } from './favorite/favorite.component';
 import {RouterModule, Routes} from '@angular/router';
+import { TestComponent } from './test/test.component';
+import { FormsModule } from '@angular/forms';
 
 const appRoutes : Routes =[
   {path: '', component:HomeComponent},
@@ -17,6 +19,7 @@ const appRoutes : Routes =[
   {path: 'search', component:SearchComponent},
   {path: 'heros-details', component:HerosDetailsComponent},
   {path: 'profile/:id', component:ProfileComponent},
+  {path:'test', component:TestComponent},
   {path: '**', component:HomeComponent}
 ];
 
@@ -29,10 +32,12 @@ const appRoutes : Routes =[
     HerosDetailsComponent,
     HerosListComponent,
     NavbarComponent,
-    FavoriteComponent
+    FavoriteComponent,
+    TestComponent
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     RouterModule.forRoot(appRoutes)
   ],
   providers: [],

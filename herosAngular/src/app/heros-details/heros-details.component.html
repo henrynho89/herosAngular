@@ -2,17 +2,12 @@
     <div class="col s12">
       <div class="card">
         <div class="card-image">
-          <img [src]="imgSrc">
-          <span class="card-title" [ngStyle]="{color: colspan<2 ? 'red' : colorTitle}">{{name}}</span>
+          <img [src]="superHero.imgSrc">
+          <span class="card-title">{{superHero.name}}</span>
           <a class="btn-floating halfway-fab waves-effect" [ngClass]="['green','waves-light']" (click)="addFavorite($event)"><i class="material-icons">favorite</i></a>
         </div>
         <div class="card-content">
-          <p>{{description}}</p>
-          <table>
-            <tr>
-              <td [attr.colspan]="colspan">test</td>
-            </tr>
-          </table>
+          <p>{{superHero.description}}</p>
         </div>
       </div>
     </div>

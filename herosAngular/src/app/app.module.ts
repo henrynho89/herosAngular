@@ -9,6 +9,7 @@ import { HerosDetailsComponent } from './heros-details/heros-details.component';
 import { HerosListComponent } from './heros-list/heros-list.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FavoriteComponent } from './favorite/favorite.component';
+import { FavoriteComponent } from './favorite/favorite.component';
 import {RouterModule, Routes} from '@angular/router';
 
 const appRoutes : Routes =[

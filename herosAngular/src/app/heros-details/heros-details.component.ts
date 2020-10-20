@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-heros-details',
@@ -8,19 +8,22 @@ import { Component, Input, OnInit } from '@angular/core';
 export class HerosDetailsComponent implements OnInit {
 
   @Input('superHero') superHero: SuperHero;
+  @Output() addToFavorite= new EventEmitter();
   colspan = 2;
   colorTitle = "blue";
   constructor() { }
 
   ngOnInit() {
   }
-  addFavorite($event){
-    console.log($event);
+  addFavorite(){
+    this.addToFavorite.emit(this.superHero.id);
   }
 }
 
 export interface SuperHero{
+  id: number;
   name: string;
   description: string;
   imgSrc: string;
+  favorite: boolean;
 }

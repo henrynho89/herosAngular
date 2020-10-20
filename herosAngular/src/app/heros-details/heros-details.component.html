@@ -4,10 +4,11 @@
         <div class="card-image">
           <img [src]="superHero.imgSrc">
           <span class="card-title">{{superHero.name}}</span>
-          <a class="btn-floating halfway-fab waves-effect" [ngClass]="['green','waves-light']" (click)="addFavorite($event)"><i class="material-icons">favorite</i></a>
+          <a class="btn-floating halfway-fab waves-effect" [ngClass]="['green','waves-light']" (click)="addFavorite()"><i class="material-icons">favorite</i></a>
         </div>
         <div class="card-content">
           <p>{{superHero.description}}</p>
+          <p>{{superHero.favorite}}</p>
         </div>
       </div>
     </div>

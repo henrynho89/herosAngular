@@ -1,17 +1,5 @@
 <div class="row">
-    <div class="col s3">
-        <app-heros-details [superHero]="superHeroes[0]" (addToFavorite)="addToFavoriteMain($event)"></app-heros-details>
-    </div>
-    <div class="col s3">
-        <app-heros-details [superHero]="superHeroes[1]" (addToFavorite)="addToFavoriteMain($event)"></app-heros-details>
-    </div>
-    <div class="col s3">
-        <app-heros-details [superHero]="superHeroes[2]" (addToFavorite)="addToFavoriteMain($event)"></app-heros-details>
-    </div>
-    <div class="col s3">
-        <app-heros-details [superHero]="superHeroes[3]" (addToFavorite)="addToFavoriteMain($event)"></app-heros-details>
-    </div>
-    <div class="col s3">
-        <app-heros-details [superHero]="superHeroes[4]" (addToFavorite)="addToFavoriteMain($event)"></app-heros-details>
+    <div class="col s3" *ngFor="let sh of superHeroes">
+        <app-heros-details [superHero]="sh" (addToFavorite)="addToFavoriteMain($event)"></app-heros-details>
     </div>
 </div>

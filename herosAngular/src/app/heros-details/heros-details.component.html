@@ -4,7 +4,15 @@
         <div class="card-image">
           <img [src]="superHero.imgSrc">
           <span class="card-title">{{superHero.name}}</span>
-          <a class="btn-floating halfway-fab waves-effect" [ngClass]="['green','waves-light']" (click)="addFavorite()"><i class="material-icons">favorite</i></a>
+          <a class="btn-floating halfway-fab waves-effect waves-light" [ngClass]="{'red':!superHero.favorite,'grey':superHero.favorite}" (click)="addFavorite()">
+            <i class="material-icons" *ngIf="!superHero.favorite; then fav else rem"></i>
+            <ng-template #fav>
+              <i class="material-icons">favorite</i>
+            </ng-template>
+            <ng-template #rem>
+              <i class="material-icons" >remove</i>
+            </ng-template>
+          </a>
         </div>
         <div class="card-content">
           <p>{{superHero.description}}</p>

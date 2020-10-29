@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { SuperHero } from '../heros-details/heros-details.component';
 import { SuperheroService } from '../shared/superhero.service';
+import { SuperHero } from '../shared/SuperHeroInterface';
 
 @Component({
   selector: 'app-search',
@@ -10,19 +10,31 @@ import { SuperheroService } from '../shared/superhero.service';
 export class SearchComponent implements OnInit {
   errorText: string ="";
   mot: string ="";
-  superHeroes: SuperHero[];
+  superHeroes: SuperHero[]= [];
   constructor(private _superHeroService: SuperheroService) { }
 
   ngOnInit() {
     this.superHeroes= this._superHeroService.superHeroesMain();
   }
   verification(){
-    if(this.mot.length<=3)
+    if(this.mot.length<=3){
       this.errorText="Le nombre de caracteres doit etre superieur a 3";
-    else
+    }
+    else{
       this.errorText=this.mot;
+      //Observer le resultat dans la console
+      // this._superHeroService.loadSuperHeroes(this.mot).subscribe(resultat =>{
+      //   console.log(resultat);
+      // })
+      this._superHeroService.loadSuperHeroes(this.mot).subscribe(resultat =>{
+        this.superHeroes = resultat['results'].map( result => {
+          result.favorite = false;
+          return result;
+        });
+      });
+    }
   }
-  superHeroesMain():SuperHero[]{
+  superHeroesMain() : SuperHero[] {
     return this.superHeroes;
   }
 }

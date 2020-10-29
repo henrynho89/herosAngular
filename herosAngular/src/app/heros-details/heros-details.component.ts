@@ -1,5 +1,6 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { SuperheroService } from '../shared/superhero.service';
+import { SuperHero } from '../shared/SuperHeroInterface';
 
 @Component({
   selector: 'app-heros-details',
@@ -22,10 +23,3 @@ export class HerosDetailsComponent implements OnInit {
   }
 }
 
-export interface SuperHero{
-  id: number;
-  name: string;
-  description: string;
-  imgSrc: string;
-  favorite: boolean;
-}

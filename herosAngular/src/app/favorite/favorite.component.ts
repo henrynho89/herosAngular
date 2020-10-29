@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { SuperHero } from '../heros-details/heros-details.component';
 import { SuperheroService } from '../shared/superhero.service';
+import { SuperHero } from '../shared/SuperHeroInterface';
 
 @Component({
   selector: 'app-favorite',

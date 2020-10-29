@@ -9,9 +9,10 @@ import { HerosDetailsComponent } from './heros-details/heros-details.component';
 import { HerosListComponent } from './heros-list/heros-list.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FavoriteComponent } from './favorite/favorite.component';
-import {RouterModule, Routes} from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { TestComponent } from './test/test.component';
 import { FormsModule } from '@angular/forms';
+import { SuperheroService } from './shared/superhero.service';
 
 const appRoutes : Routes =[
   {path: '', component:HomeComponent},
@@ -40,7 +41,9 @@ const appRoutes : Routes =[
     FormsModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [],
+  providers: [
+    SuperheroService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

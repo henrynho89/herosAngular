@@ -1,64 +1,21 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { SuperHero } from '../heros-details/heros-details.component';
+import { Observable } from 'rxjs';
+import { SuperHero } from './SuperHeroInterface';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SuperheroService {
+  accessToken = '3752119424820763';
+  url = 'https://cors-anywhere.herokuapp.com/https://superheroapi.com/api/';
+  superHeroes: SuperHero[];
+  constructor(private httpClient: HttpClient) { }
 
-  constructor() { }
+  loadSuperHeroes(name: string): Observable<SuperHero[]>{
+    return this.httpClient.get<SuperHero[]>(this.url + this.accessToken + '/search/'+ name);
+  }
 
-  private superHeroes: SuperHero[] = [
-    {
-      id: 0,
-      name: "Captain America",
-      description: "Le super heros Captain America",
-      imgSrc: "https://static1.purebreak.com/articles/8/18/92/08/@/703780-le-faucon-et-le-soldat-de-l-hiver-deco-diapo-1.jpg",
-      favorite: true
-    },
-    {
-      id: 1,
-      name: "Captain Marvel",
-      description: "Le super heros Captain Marvel",
-      imgSrc: "https://static1.purebreak.com/articles/8/18/92/08/@/703780-le-faucon-et-le-soldat-de-l-hiver-deco-diapo-1.jpg",
-      favorite: false
-    },
-    {
-      id: 2,
-      name: "Thor",
-      description: "Le super heros Thor",
-      imgSrc: "https://static1.purebreak.com/articles/8/18/92/08/@/703780-le-faucon-et-le-soldat-de-l-hiver-deco-diapo-1.jpg",
-      favorite:true
-    },
-    {
-      id: 3,
-      name: "Captain America",
-      description: "Le super heros Captain America",
-      imgSrc: "https://static1.purebreak.com/articles/8/18/92/08/@/703780-le-faucon-et-le-soldat-de-l-hiver-deco-diapo-1.jpg",
-      favorite: true
-    },
-    {
-      id: 4,
-      name: "SpiderMan",
-      description: "Le super heros SpiderMan",
-      imgSrc: "https://static1.purebreak.com/articles/8/18/92/08/@/703780-le-faucon-et-le-soldat-de-l-hiver-deco-diapo-1.jpg",
-      favorite: false
-    },
-    {
-      id: 5,
-      name: "IronMan",
-      description: "Le super heros IronMan",
-      imgSrc: "https://static1.purebreak.com/articles/8/18/92/08/@/703780-le-faucon-et-le-soldat-de-l-hiver-deco-diapo-1.jpg",
-      favorite: false
-    },
-    {
-      id: 6,
-      name: "Black Panther",
-      description: "Le super heros Captain America",
-      imgSrc: "https://static1.purebreak.com/articles/8/18/92/08/@/703780-le-faucon-et-le-soldat-de-l-hiver-deco-diapo-1.jpg",
-      favorite: true
-    }
-  ];
 
   superHeroesMain(): SuperHero[]{
     return this.superHeroes;

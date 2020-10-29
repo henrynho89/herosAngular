@@ -2,7 +2,7 @@
     <div class="col s12">
       <div class="card">
         <div class="card-image">
-          <img [src]="superHero.imgSrc">
+          <img [src]="superHero.image.url">
           <span class="card-title">{{superHero.name}}</span>
           <a class="btn-floating halfway-fab waves-effect waves-light" [ngClass]="{'red':!superHero.favorite,'grey':superHero.favorite}" (click)="addFavorite()">
             <i class="material-icons" *ngIf="!superHero.favorite; then fav else rem"></i>
@@ -15,7 +15,7 @@
           </a>
         </div>
         <div class="card-content">
-          <p>{{superHero.description}}</p>
+          <p>{{superHero.biography['full-name']}}</p>
           <p>{{superHero.favorite}}</p>
         </div>
       </div>

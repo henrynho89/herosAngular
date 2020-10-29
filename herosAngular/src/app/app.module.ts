@@ -13,6 +13,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { TestComponent } from './test/test.component';
 import { FormsModule } from '@angular/forms';
 import { SuperheroService } from './shared/superhero.service';
+import { HttpClientModule } from '@angular/common/http';
 
 const appRoutes : Routes =[
   {path: '', component:HomeComponent},
@@ -39,6 +40,7 @@ const appRoutes : Routes =[
   imports: [
     BrowserModule,
     FormsModule,
+    HttpClientModule,
     RouterModule.forRoot(appRoutes)
   ],
   providers: [
